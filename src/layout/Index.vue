@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import Aside from "@/components/Aside.vue";
-import Header from "@/components/Header.vue";
+
+  import Header from "@/components/Header.vue";
+  import Menu from "@/layout/Menu.vue";
 
 </script>
 
@@ -9,16 +10,16 @@ import Header from "@/components/Header.vue";
   <div style="height: 100%">
     <el-container style="height: 100%; ">
       <el-aside
-
-          style="background-color: rgb(238, 241, 246);height: 100%; box-shadow: 2px 0 6px rgb(0 21 41 / 35%); ">
-        <Aside/>
+          >
+        <Menu/>
       </el-aside>
 
       <el-container>
         <el-header style=" width: 100%; border-bottom: 1px solid #ccc;">
           <Header/>
         </el-header>
-        <el-main>
+        <el-main style="background-color: aquamarine">
+          111
           <router-view/>
         </el-main>
       </el-container>

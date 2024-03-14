@@ -1,5 +1,3 @@
-import {fileURLToPath, URL} from 'node:url'
-
 import {defineConfig} from 'vite'
 import vue from '@vitejs/plugin-vue'
 import {resolve} from 'path';
@@ -15,7 +13,6 @@ export default defineConfig({
         hmr: true, //开启热更新，代码更新后保存即可更新于界面
         open: true //启动在浏览器打开，重新输入启动指令，浏览器自动打开项目首页
     },
-
     // vite别名
     resolve: {
         alias: [
