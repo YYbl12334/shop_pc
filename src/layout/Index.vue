@@ -9,8 +9,7 @@
 
   <div style="height: 100%">
     <el-container style="height: 100%; ">
-      <el-aside
-          >
+      <el-aside>
         <Menu/>
       </el-aside>
 
@@ -19,7 +18,6 @@
           <Header/>
         </el-header>
         <el-main style="background-color: aquamarine">
-          111
           <router-view/>
         </el-main>
       </el-container>

@@ -1,7 +1,13 @@
 <script lang="ts" setup>
-  import {reactive, ref} from "vue";
+  import {computed, reactive, ref} from "vue";
   import MenuItem from "./MenuItem.vue";
+  import {useRoute} from "vue-router";
 
+  const route = useRoute()
+  const activeIndex = computed(() => {
+    const {path} = route;
+    return path
+  })
   let menuList = reactive([
     {
       path: "/dashboard",
@@ -168,7 +174,7 @@
 
 <template>
   <el-menu
-      default-active="/dashboard"
+      :default-active="activeIndex"
       class="el-menu-vertical-demo"
       :collapse="isCollapse"
       unique-opened
@@ -185,7 +191,7 @@
 
 <style scoped lang="scss">
   .el-menu-vertical-demo:not(.el-menu--collapse) {
-    width: 100%;
+    width: 90%;
     min-height: 100%;
   }
 
