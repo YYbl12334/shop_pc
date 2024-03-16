@@ -1,8 +1,40 @@
+<template>
+  <MenuLogo></MenuLogo>
+  <el-menu
+       style="height: 797px;overflow-x: hidden;   border-right-color: transparent"
+      :default-active="activeIndex"
+      class="el-menu-vertical-demo"
+      :collapse="isCollapse"
+      unique-opened
+      router
+      @open="handleOpen"
+      @close="handleClose"
+      background-color="#304156"
+  >
+    <MenuItem :menu-list="menuList">
+    </MenuItem>
+  </el-menu>
+</template>
 <script lang="ts" setup>
-  import {computed, reactive, ref} from "vue";
-  import MenuItem from "./MenuItem.vue";
-  import {useRoute} from "vue-router";
+  // import {computed, reactive, ref} from "vue";
+  import {computed, reactive} from "vue";
 
+  import MenuItem from "./MenuItem.vue";
+  import MenuLogo from "./MenuLogo.vue";
+  import {useRoute} from "vue-router";
+  import {collapseStore} from '@/stores/collapse/index';
+
+  const collStore = collapseStore()
+  const isCollapse = computed(() => {
+    return collStore.getCollapse
+  })
+
+  const handleOpen = (key: string, keyPath: string[]) => {
+    console.log(key, keyPath)
+  }
+  const handleClose = (key: string, keyPath: string[]) => {
+    console.log(key, keyPath)
+  }
   const route = useRoute()
   const activeIndex = computed(() => {
     const {path} = route;
@@ -161,43 +193,17 @@
     },
   ],)
   // 不能折叠整个菜单
-  const isCollapse = ref(false)
+  // const isCollapse = ref(false)
   // 需要展开和收起的菜单的方法
-  const handleOpen = (key: string, keyPath: string[]) => {
-    console.log(key, keyPath)
-  }
-  const handleClose = (key: string, keyPath: string[]) => {
-    console.log(key, keyPath)
-  }
+
 
 </script>
-
-<template>
-  <el-menu
-      :default-active="activeIndex"
-      class="el-menu-vertical-demo"
-      :collapse="isCollapse"
-      unique-opened
-      router
-      @open="handleOpen"
-      @close="handleClose"
-      background-color="#304156"
-  >
-    <MenuItem :menu-list="menuList">
-
-    </MenuItem>
-  </el-menu>
-</template>
-
-<style scoped lang="scss">
+<style scoped>
   .el-menu-vertical-demo:not(.el-menu--collapse) {
-    width: 90%;
-    min-height: 100%;
+    width: 200px;
+    min-height: 790px;
   }
 
-  .el-menu {
-    border-right: none;
-  }
 
   :deep(.el-sub-menu .el-sub-menu__title) {
     color: #f4f4f5 !important;

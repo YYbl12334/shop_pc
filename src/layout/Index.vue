@@ -2,22 +2,21 @@
 
   import Header from "@/components/Header.vue";
   import Menu from "@/layout/Menu.vue";
-
+  import Collapse from "./Collapse.vue"
 </script>
 
 <template>
 
   <div style="height: 100%">
-    <el-container style="height: 100%; ">
-      <el-aside>
+    <el-container  class="mycontainer">
+      <el-aside width="auto" class="aside">
         <Menu/>
       </el-aside>
-
       <el-container>
-        <el-header style=" width: 100%; border-bottom: 1px solid #ccc;">
-          <Header/>
+        <el-header class="header">
+          <Collapse></Collapse>
         </el-header>
-        <el-main style="background-color: aquamarine">
+        <el-main style="background-color: #FFF" class="mymain">
           <router-view/>
         </el-main>
       </el-container>
@@ -25,3 +24,22 @@
   </div>
 
 </template>
+
+<style scoped lang="scss">
+  .mycontainer{
+    height: 100%;
+    .aside{
+
+    }
+    .header{
+     background-color: #334154;
+      display: flex;
+      align-items: center;
+      color: #FFF ;
+    }
+    .mymain{
+
+    }
+  }
+
+</style>
