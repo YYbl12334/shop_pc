@@ -1,7 +1,7 @@
 <template>
   <MenuLogo></MenuLogo>
   <el-menu
-       style="height: 797px;overflow-x: hidden;   border-right-color: transparent"
+      style="height:93%; border-right-color: transparent "
       :default-active="activeIndex"
       class="el-menu-vertical-demo"
       :collapse="isCollapse"
@@ -16,13 +16,12 @@
   </el-menu>
 </template>
 <script lang="ts" setup>
-  // import {computed, reactive, ref} from "vue";
-  import {computed, reactive} from "vue";
-
   import MenuItem from "./MenuItem.vue";
   import MenuLogo from "./MenuLogo.vue";
+
+  import {computed, reactive} from "vue";
   import {useRoute} from "vue-router";
-  import {collapseStore} from '@/stores/collapse/index';
+  import {collapseStore} from '@/stores/collapse';
 
   const collStore = collapseStore()
   const isCollapse = computed(() => {
@@ -192,18 +191,13 @@
       ],
     },
   ],)
-  // 不能折叠整个菜单
-  // const isCollapse = ref(false)
-  // 需要展开和收起的菜单的方法
-
-
 </script>
 <style scoped>
   .el-menu-vertical-demo:not(.el-menu--collapse) {
     width: 200px;
-    min-height: 790px;
+    overflow-x: hidden;
+    min-height: 93%;
   }
-
 
   :deep(.el-sub-menu .el-sub-menu__title) {
     color: #f4f4f5 !important;

@@ -1,6 +1,6 @@
-import type {RouteRecordRaw} from 'vue-router'
-import {createRouter, createWebHistory,} from 'vue-router'
+import {createRouter, createWebHistory, type RouteRecordRaw} from 'vue-router'
 import Layout from '@/layout/Index.vue'
+
 
 const routes: Array<RouteRecordRaw> = [
     {

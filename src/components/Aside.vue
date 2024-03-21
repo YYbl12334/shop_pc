@@ -9,8 +9,6 @@
            active-text-color="#ffd04b"
            :collapse-transition="false"
            router
-
-
   >
     <div style="height: 60px; line-height: 60px; text-align: center">
       <img src="../../src/assets/logo.png" style="width: 20px; position: relative; top:5px;margin-right: 5px ">

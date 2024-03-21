@@ -2,7 +2,7 @@
   <!-- logo图片 -->
   <div class="logo">
     <img :src="MenuLogo" alt="logo"/>
-    <span  v-show="show" class="logo-title">{{ title }}</span>
+    <span v-show="show" class="logo-title">{{ title }}</span>
   </div>
 </template>
 <script setup lang="ts">
@@ -10,16 +10,17 @@
   import MenuLogo from '@/assets/MenuLogo.png'
 
   import {ref, watch} from "vue";
-  import { collapseStore } from "@/stores/collapse/index";
+  import {collapseStore} from "@/stores/collapse";
+
   const store = collapseStore();
   const show = ref(true)
   watch(
-      ()=>store.getCollapse,
-      (collapsed:boolean)=>{
-        if (!collapsed){
-          setTimeout(()=>{
+      () => store.getCollapse,
+      (collapsed: boolean) => {
+        if (!collapsed) {
+          setTimeout(() => {
             show.value = !collapsed;
-          },300);
+          }, 300);
         } else {
           show.value = !collapsed;
         }
@@ -35,7 +36,7 @@
     width: 100%;
     height: 60px;
     line-height: 60px;
-    background: #2b2f3a;
+    background: #334054;
     text-align: center;
     cursor: pointer;
     align-items: center;
@@ -50,7 +51,7 @@
   }
 
   .logo-title {
-    color: #001528;
+    color: #FFFFFF;
     font-weight: 800;
     line-height: 60px;
     font-size: 22px;
